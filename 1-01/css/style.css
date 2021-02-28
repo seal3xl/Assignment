@@ -140,7 +140,7 @@ time, mark, audio, video {
 }
 
 .content ul li {
-    background: red;
+    background: #777;
     width: 24%;
     margin-bottom: 20px;
     overflow: hidden;
