@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第二週作業：Javascript</title>
+    <script type="text/javascript">
+//-----------------------------------------------------------
+//要求一：函式與流程控制
+
+    function calculate(min, max){
+// 請用你的程式補完這個函式的區塊
+        var sum=0
+        for(var i=min;i<=max;i++){
+            sum+=i
+        }
+        console.log(sum)
+    }
+
+calculate(1, 3); // 你的程式要能夠計算 1+2+3，最後印出 6
+calculate(4, 8); // 你的程式要能夠計算 4+5+6+7+8，最後印出 30
+//-----------------------------------------------------------
+/*要求一：思路
+
+使用for迴圈，從min跑到max，並將每個值都加入sum中。
+*/
+//-----------------------------------------------------------
+
+
+
+//-----------------------------------------------------------
+//要求二：Python 字典與列表、JavaScript 物件與陣列
+
+    function avg(data){
+// 請用你的程式補完這個函式的區塊
+        var e=data["employees"]
+        for(var s=0,len=e.length,sum=0;s<len;s++){
+            sum+=e[s]["salary"];
+        }
+        var avg_salary=sum/data["count"]
+        console.log(avg_salary)
+    }
+
+    avg({
+    "count":3,
+    "employees":[
+    {
+    "name":"John",
+    "salary":30000
+    },
+    {
+    "name":"Bob",
+    "salary":60000
+    },
+    {
+    "name":"Jenny",
+    "salary":50000
+    }
+    ]
+    }); // 呼叫 avg 函式
+//-----------------------------------------------------------
+/*要求二：思路
+
+先取出data的employees的部分，放入e，
+使用for迴圈，讀e，並將每個salary的值加入sum中。
+迴圈結束後，將sum的值除以count的值。
+*/
+//-----------------------------------------------------------
+
+
+
+//-----------------------------------------------------------
+//要求三：演算法
+
+function maxProduct(nums){
+// 請用你的程式補完這個函式的區塊
+//第一部份
+    var result=[]
+    for(var i=0,len=nums.length;i<len;i++){
+        for(var j=0;j<len;j++){
+            if(i==j){
+                continue;
+            }
+            else{
+                result.push(nums[i]*nums[j])
+            }
+        }
+    }
+//第二部份
+    for(var a=0,len=result.length;a<len;a++){
+        for(var b=0;b<len;b++){
+            if(a==b){
+                continue;
+            }
+            else if(result[a]>result[b]){
+                result.splice(b,1,0);
+            }
+            else{
+                result.splice(a,1,0);
+            }
+        }
+    }
+    for(var c=1,len=result.length,sum=0;c<len;c++){
+        sum+=result[c];
+    }
+    if(sum==0){
+        console.log(0);
+    }
+    else{
+        console.log(sum);
+    }
+}
+
+maxProduct([5, 20, 2, 6]); // 得到 120 因為 20 和 6 相乘得到最大值
+maxProduct([10, -20, 0, 3]); // 得到 30 因為 10 和 3 相乘得到最大值
+//-----------------------------------------------------------
+/*要求三：思路
+
+第一部份：將陣列中的值兩兩相乘，並將結果放入新陣列中。
+使用兩個for迴圈，將陣列內的值一一兩兩相乘，
+同位置的值不運算（i、j代表位置，i=j同位置時，則continue），
+不同位置時，將該兩值相乘，並加入result的後面，
+直到迴圈結束，將所有相乘的值都放入result中。
+
+第二部份：取出新陣列中的最大值。
+使用兩個for迴圈，將陣列內的值一一比較運算，
+同位置的值不運算（a、b代表位置，a=b同位置時，則continue），
+不同位置時，進行兩兩比較，
+若前者比較大，就將後者變成0，
+若後者比較大或兩者相同，就將前者變成0，
+如此除了最大的數字之外，陣列中其他的值都會變成0，
+最後用for迴圈，將陣列中的值加總到sum中，
+若sum不等於0，就顯示出sum值，
+若sum等於0，則顯示出0。
+
+ps:
+第二部分本來是兩兩比較時，
+若前者比較大，就將後者刪除，
+若後者比較大，就將前者刪除，
+最後就會剩下最大的那個值。
+但發現這樣做，
+陣列次序會亂掉，比較的順序也會亂掉，
+想不出來在這個基礎上要怎麼解決，
+所以才改成將該位置置換成0，
+然後再將陣列內的值加總。
+*/
+//-----------------------------------------------------------
+
+
+
+//-----------------------------------------------------------
+//要求四 ( 請閱讀英文 )：演算法
+
+function twoSum(nums, target){
+// your code here
+    var a=[];
+    for(var i=0,len=nums.length;i<len;i++){
+        for(var j=0;j<len;j++){
+            if(i==j){
+                continue;
+            }
+            else if(nums[i]+nums[j]==target){
+                a.push(i,j);
+                break;
+            }
+        }
+        if(a!=[]){
+            break;
+        }
+    }
+    return a;
+}
+
+result=twoSum([2, 11, 7, 15], 9)
+console.log(result) // show [0, 2] because nums[0]+nums[2] is 9
+//-----------------------------------------------------------
+/*要求四：思路
+
+使用兩個for迴圈，將nums內的值做運算（同位置的值不進行運算，以i和j代表位置，若i=j則continue），
+將nums內的值兩兩相加若等於target值時，將i,j加入a陣列中，並停止第二個迴圈，
+在第一個迴圈接著判斷，若a裡面已經有值，就停止第一個迴圈，
+函式最後，回傳a陣列。
+*/
+//-----------------------------------------------------------
+
+
+
+//-----------------------------------------------------------
+//要求五 ( Optional )：演算法
+
+function maxZeros(nums){
+// 請用你的程式補完這個函式的區塊
+    for(var i=0,a=0,sum_zero=[],len=nums.length;i<len;i++){
+        if(nums[i]!=0){
+            sum_zero.push(a);
+            a=0;
+            continue;
+        }
+        else{
+            a++;
+        }
+    }
+    sum_zero.push(a);
+
+    for(var a=0,len=sum_zero.length;a<len;a++){
+            for(var b=0;b<len;b++){
+                if(a==b){
+                    continue;
+                }
+                else if(sum_zero[a]>=sum_zero[b]){
+                    sum_zero.splice(b,1,0);
+                }
+                else{
+                    sum_zero.splice(a,1,0);
+                }
+            }
+        }
+    for(var c=0,len=sum_zero.length,sum=0;c<len;c++){
+        sum+=sum_zero[c];
+        }
+    if(sum==0){
+        console.log(0);
+    }
+    else{
+        console.log(sum);
+    }
+}
+
+maxZeros([0, 1, 0, 0]) // 得到 2
+maxZeros([1, 0, 0, 0, 0, 1, 0, 1, 0, 0]) // 得到 4
+maxZeros([1, 1, 1, 1, 1]) // 得到 0
+//-----------------------------------------------------------
+/*要求五：思路
+
+第一部份：將每個連續0的長度加入陣列sum_zero中。
+使用for迴圈，讀nums內的資料，
+用a紀錄讀到0的次數，
+讀到0時，a的值會+1，
+讀到1時，會將目前所累積的a值加入sum_zero裡，並將a值歸0，並繼續讀下一個值。
+在迴圈結束後，再次將最後的a值加入sum_zero裡，以防最後1個數字不是1，或是整個陣列都沒有1的情況（因沒有1所以無法將最後一個a值加入sum_zero中）。
+
+
+第二部份：取出新陣列中的最大值。
+（與要求三第二部份一樣，只有一個地方不同）
+進行兩兩比較，
+若前者比較大或兩者相同，就將後者變成0，
+若後者比較大，就將前者變成0。
+最後仍是會剩下一個最大的值。
+*/
+//-----------------------------------------------------------
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
