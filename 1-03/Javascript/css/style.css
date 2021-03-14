@@ -1,0 +1,266 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*css reset meyerweb*/
+
+*,*:before,*:after{
+    box-sizing: border-box;
+    outline: none;/*按鈕不會出現選取框*/
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	font-size: 20px;
+    font-family: Arial;
+    letter-spacing: -0.5px;
+}
+
+/*css reset*/
+
+.head{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 20px 20px;
+}
+.logo{
+    font-weight: bold;
+}
+
+.logo a{
+    color: black;
+    text-decoration: none;
+}
+
+.nav{
+    position: absolute;
+    right: 10px;
+}
+
+.nav ul{
+    display: flex;
+}
+
+.nav ul li a{
+    margin-left: 5px;
+    padding:0 10px;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav ul li a:hover{
+    color: #777;
+}
+
+.rwdmenu a{
+    display: none;
+    background-image: url(../image/menu.svg);
+    background-repeat: no-repeat;
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.main{
+    background: #ddd;
+    height: 300px;
+    line-height: 300px;
+    font-size: 200%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content{
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 1200px;
+    overflow: hidden;
+}
+
+#contentHeight{
+    height: 440px;
+}
+
+.content ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content ul li {
+    background: #aaa;
+    width: 24%;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.content a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content img{
+    width: 100%;
+    height: 65%;
+    text-align: center;
+}
+
+.content .text{
+    width: 100%;
+    height: 35%;
+    background: #ddd;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.75;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .text h2{
+    padding: 15px;
+    text-align: center;
+}
+
+.loadmore{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#loadmore{
+    display: flex;
+}
+
+.loadMore,.loadAll{
+    width: 200px;
+    margin: 20px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 100%;
+    border: 1px solid #999;
+    border-radius: 10px;
+    color: #999;
+}
+
+.loadMore:hover,.loadAll:hover{
+    background-color: #ccc;
+    color: #000;
+    border: 0;
+}
+
+
+@media(max-width: 1200px){
+    .content{
+        width: 90%;
+    }
+    #contentHeight{
+        height: 880px;
+    }
+
+    .content ul li {
+        width: 48%;
+    }
+    
+    .content .text{
+        bottom: 0;
+    }
+}
+
+@media(max-width: 600px){
+    .nav ul{
+        display: none;
+    }
+
+    .rwdmenu a{
+        display: block;
+    }
+    
+    .main{
+        font-size: 150%;
+    }
+
+    #contentHeight{
+        height: 1760px;
+    }
+
+    .content ul li {
+        width: 90%;
+    }
+
+    .loadmore{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .loadMore,.loadAll{
+        width: 90%;
+        margin: 5px;
+    }
+}
